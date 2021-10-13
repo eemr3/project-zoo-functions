@@ -12,12 +12,8 @@ function getRelatedEmployees(managerId) {
     );
   }
 
-  return employees.reduce((acc, employee) => {
-    if (employee.managers.includes(managerId)) {
-      acc.push(`${employee.firstName} ${employee.lastName}`);
-    }
-    return acc;
-  }, []);
+  return employees.reduce((acc, employee) => (employee.managers.includes(managerId)
+    ? acc.concat(`${employee.firstName} ${employee.lastName}`) : acc), []);
 }
 
 module.exports = { isManager, getRelatedEmployees };
