@@ -6,6 +6,7 @@ const dayClosed = {
 const weekDaysNames = Object.keys(hours);
 const weekDaysHours = Object.values(hours);
 
+// Criando o objeto se não passar paramentros ou qualquer coisa
 const scheduleNotParams = () => {
   const result = weekDaysNames.reduce((acc, curr, index) => {
     acc[curr] = {
