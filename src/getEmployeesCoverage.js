@@ -25,27 +25,29 @@ const getEmployeeParameter = ({ id, name }) => {
   );
 };
 
-const testeReduce = (employee) => {
+const getEmployeesWithParameter = (employee) => {
   const result = getEmployeeParameter(employee);
-  return result.reduce((acc, current) => ({
-    id: current.id,
+  return result.reduce((acc, current) => ({ id: current.id,
     fullName: `${current.firstName} ${current.lastName}`,
-    species: species.reduce(
-      (accSp, specie) => (current.responsibleFor.includes(specie.id)
+    species: species.reduce((accSp, specie) =>
+      (current.responsibleFor.includes(specie.id)
         ? accSp.concat(specie.name)
         : accSp),
+    []),
+    locations: species.reduce(
+      (accLoc, location) =>
+        (current.responsibleFor.includes(location.id)
+          ? accLoc.concat(location.location)
+          : accLoc),
       [],
     ),
-    locations: species.reduce((accLoc, location) => (current.responsibleFor.includes(location.id)
-      ? accLoc.concat(location.location)
-      : accLoc),
-    []),
-  }), {});
+  }),
+  {});
 };
 
 function getEmployeesCoverage(employee) {
   if (!employee) return getEmployeesCoverageNotParams();
-  return testeReduce(employee);
+  return getEmployeesWithParameter(employee);
 }
 
 (module.exports = getEmployeesCoverage);
