@@ -32,7 +32,7 @@ Project Zoo Function
 
 ## :interrobang: Motivo
 
-Quinto projeto realizado no módulo de fundamento do curso na Trybe.
+Sexto projeto realizado no módulo de fundamento do curso na Trybe.
 
 Projeto realizado para consolidar os conhecimento aprendidos em  JS, HoFs,
 
